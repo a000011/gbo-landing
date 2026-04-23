@@ -1,0 +1,458 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Gas Trek - Установка и обслуживание ГБО" description="Установка, настройка и сервис ГБО с гарантией. Работаем с пропаном и метаном, подбираем комплект под ваш автомобиль.">
+	<main>
+		<header class="hero" id="top">
+			<div class="hero-glow" aria-hidden="true"></div>
+			<div class="container hero-grid">
+				<div class="hero-copy reveal">
+					<p class="eyebrow">СЕРТИФИЦИРОВАННЫЙ АВТОСЕРВИС ГБО</p>
+					<h1>Устанавливаем ГБО аккуратно, настраиваем точно, экономим до 45% на топливе</h1>
+					<p class="lead">Подберем комплект 4-го поколения под ваш авто, оформим документы и дадим гарантию на работы и оборудование.</p>
+					<div class="hero-cta">
+						<a class="button button-primary" href="tel:+784822112233">Позвонить сейчас</a>
+					</div>
+					<ul class="hero-facts" aria-label="Ключевые преимущества">
+						<li>Быстро и качественно</li>
+						<li>Гарантия</li>
+						<li>Официальные документы</li>
+					</ul>
+				</div>
+				<aside class="hero-panel reveal">
+					<h2>Что делаем каждый день</h2>
+					<ul>
+						<li>Установка ГБО</li>
+						<li>Диагностика и калибровка</li>
+						<li>Ремонт редукторов и форсунок</li>
+						<li>Плановое обслуживание</li>
+					</ul>
+					<p class="panel-note">Работаем с популярными брендами: BRC, Digitronic, Lovato.</p>
+				</aside>
+			</div>
+		</header>
+
+		<section class="section" id="benefits">
+			<div class="container">
+				<div class="section-head reveal">
+					<p class="eyebrow">ПОЧЕМУ ВЫБИРАЮТ НАС</p>
+					<h2>Без лишних обещаний, только понятный сервис</h2>
+				</div>
+				<div class="card-grid">
+					<article class="card reveal">
+						<h3>Опыт более 15 лет</h3>
+						<p>Знаем нюансы по моделям и моторам, не ставим "универсальные" решения наугад.</p>
+					</article>
+					<article class="card reveal">
+						<h3>Установка ГБО 4 поколения от 31 000 ₽</h3>
+						<p>Подбираем комплект под автомобиль и бюджет, заранее согласовываем состав работ.</p>
+					</article>
+					<article class="card reveal">
+						<h3>Гарантия и сопровождение</h3>
+						<p>После установки контролируем параметры, напоминаем о ТО и помогаем с настройкой.</p>
+					</article>
+					<article class="card reveal">
+						<h3>Безопасность в приоритете</h3>
+						<p>Только сертифицированные компоненты и корректная укладка магистралей.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="steps">
+			<div class="container">
+				<div class="section-head reveal">
+					<p class="eyebrow">КАК ПРОХОДИТ УСТАНОВКА</p>
+					<h2>Прозрачный процесс без сюрпризов</h2>
+				</div>
+				<ol class="steps">
+					<li class="reveal"><span>1</span>Диагностика автомобиля и подбор комплекта</li>
+					<li class="reveal"><span>2</span>Монтаж компонентов и аккуратная прокладка магистралей</li>
+					<li class="reveal"><span>3</span>Калибровка, тест на дороге и финальная проверка</li>
+					<li class="reveal"><span>4</span>Передача авто, рекомендации по эксплуатации и график ТО</li>
+				</ol>
+			</div>
+		</section>
+
+		<section class="section section-soft" id="faq">
+			<div class="container">
+				<div class="section-head reveal">
+					<p class="eyebrow">FAQ</p>
+					<h2>Частые вопросы по ГБО</h2>
+				</div>
+				<div class="faq-list">
+					<details class="faq-item reveal">
+						<summary>Насколько падает мощность после установки?</summary>
+						<p>При правильной настройке разница минимальна и в городе обычно не ощущается.</p>
+					</details>
+					<details class="faq-item reveal">
+						<summary>Как часто нужно обслуживание?</summary>
+						<p>В среднем каждые 8-10 тыс. км: фильтры, проверка параметров и профилактика.</p>
+					</details>
+					<details class="faq-item reveal">
+						<summary>Можно ли ездить зимой на ГБО?</summary>
+						<p>Да, система работает штатно при корректной настройке и исправной бензиновой части.</p>
+					</details>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="contacts">
+			<div class="container contact-wrap reveal">
+				<div>
+					<p class="eyebrow">КОНТАКТЫ</p>
+					<h2>Запись по телефону</h2>
+					<p>г. Тольятти, ул. Ларина 145<br/>Пн-Сб: 09:00-19:00</p>
+					<p><a href="tel:+784822112233">+7 (8482) 21-12-33</a></p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script is:inline>
+		const items = document.querySelectorAll('.reveal');
+		const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (reduced) {
+			items.forEach((item) => item.classList.add('is-visible'));
+		} else {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('is-visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.15 }
+			);
+
+			items.forEach((item, index) => {
+				item.style.setProperty('--delay', `${Math.min(index * 45, 240)}ms`);
+				observer.observe(item);
+			});
+		}
+	</script>
+</Layout>
+
+<style>
+	:global(:root) {
+		--bg: #f4f4ef;
+		--bg-soft: #e9e8e1;
+		--paper: #fbfbf8;
+		--ink: #1b2329;
+		--muted: #4e5a63;
+		--accent: #d4582f;
+		--line: #d8d6ca;
+		--shadow: 0 10px 40px rgba(27, 35, 41, 0.08);
+	}
+
+	main {
+		background: radial-gradient(circle at 10% -10%, #fff7eb 0%, transparent 50%),
+			radial-gradient(circle at 90% -20%, #e1ecef 0%, transparent 42%),
+			var(--bg);
+		color: var(--ink);
+	}
+
+	.container {
+		width: min(1120px, calc(100% - 2.2rem));
+		margin: 0 auto;
+	}
+
+	.hero {
+		position: relative;
+		padding: clamp(3.5rem, 6vw, 6rem) 0 3rem;
+		overflow: clip;
+	}
+
+	.hero-glow {
+		position: absolute;
+		width: 540px;
+		height: 540px;
+		border-radius: 50%;
+		top: -280px;
+		right: -160px;
+		background: radial-gradient(circle, rgba(212, 88, 47, 0.22) 0%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.hero-grid {
+		display: grid;
+		gap: 1.4rem;
+	}
+
+	.hero-copy {
+		max-width: 760px;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+		line-height: 1.08;
+		letter-spacing: -0.02em;
+		margin: 0;
+	}
+
+	h1 {
+		font-size: clamp(2rem, 5.4vw, 3.65rem);
+		max-width: 18ch;
+		text-wrap: balance;
+	}
+
+	h2 {
+		font-size: clamp(1.7rem, 4vw, 2.6rem);
+		max-width: 18ch;
+	}
+
+	p,
+	li,
+	input,
+	button,
+	a,
+	summary {
+		font-family: 'Manrope', 'Segoe UI', sans-serif;
+	}
+
+	.eyebrow {
+		color: var(--accent);
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		margin: 0 0 0.65rem;
+	}
+
+	.lead {
+		font-size: 1.05rem;
+		line-height: 1.6;
+		max-width: 56ch;
+		color: var(--muted);
+	}
+
+	.hero-cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+		margin: 1.6rem 0 1.1rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.8rem 1.2rem;
+		border-radius: 999px;
+		text-decoration: none;
+		font-weight: 700;
+		transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+	}
+
+	.button-primary {
+		background: var(--accent);
+		color: #fff;
+		border: none;
+		box-shadow: 0 12px 22px rgba(212, 88, 47, 0.28);
+	}
+
+	.button-ghost {
+		background: transparent;
+		border: 1px solid var(--line);
+		color: var(--ink);
+	}
+
+	.button:hover,
+	.button:focus-visible {
+		transform: translateY(-2px);
+	}
+
+	.hero-facts {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.7rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.hero-facts li {
+		background: rgba(255, 255, 255, 0.75);
+		border: 1px solid var(--line);
+		padding: 0.42rem 0.75rem;
+		border-radius: 999px;
+		font-size: 0.92rem;
+	}
+
+	.hero-panel {
+		background: var(--paper);
+		border: 1px solid var(--line);
+		border-radius: 22px;
+		padding: 1.25rem;
+		box-shadow: var(--shadow);
+	}
+
+	.hero-panel ul {
+		margin: 1rem 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		gap: 0.6rem;
+	}
+
+	.hero-panel li {
+		padding-left: 1.2rem;
+		position: relative;
+	}
+
+	.hero-panel li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.55em;
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		background: var(--accent);
+	}
+
+	.panel-note {
+		margin: 0;
+		font-size: 0.92rem;
+		color: var(--muted);
+	}
+
+	.section {
+		padding: clamp(2.8rem, 5vw, 4.8rem) 0;
+	}
+
+	.section-soft {
+		background: linear-gradient(0deg, var(--bg-soft), var(--bg-soft));
+		border-top: 1px solid rgba(0, 0, 0, 0.02);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+	}
+
+	.section-head {
+		margin-bottom: 1.3rem;
+	}
+
+	.card-grid {
+		display: grid;
+		gap: 0.95rem;
+	}
+
+	.card {
+		padding: 1.1rem;
+		border-radius: 18px;
+		background: var(--paper);
+		border: 1px solid var(--line);
+		box-shadow: var(--shadow);
+	}
+
+	.steps {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 0.85rem;
+	}
+
+	.steps li {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.9rem;
+		padding: 1rem;
+		background: var(--paper);
+		border: 1px solid var(--line);
+		border-radius: 16px;
+	}
+
+	.steps span {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 999px;
+		background: var(--accent);
+		color: #fff;
+		font-weight: 700;
+		flex-shrink: 0;
+	}
+
+	.faq-list {
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		background: var(--paper);
+		border: 1px solid var(--line);
+		border-radius: 14px;
+		padding: 0.9rem 1rem;
+	}
+
+	summary {
+		cursor: pointer;
+		font-weight: 700;
+	}
+
+	.faq-item p {
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+	}
+
+	.contact-wrap {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.contact-wrap a {
+		color: var(--ink);
+	}
+
+	button:focus-visible,
+	a:focus-visible,
+	summary:focus-visible {
+		outline: 3px solid rgba(212, 88, 47, 0.35);
+		outline-offset: 2px;
+	}
+
+	.reveal {
+		opacity: 0;
+		transform: translateY(18px);
+		transition: opacity 480ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
+		transition-delay: var(--delay, 0ms);
+	}
+
+	.reveal.is-visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	@media (min-width: 760px) {
+		.hero-grid {
+			grid-template-columns: 1.25fr 0.75fr;
+			align-items: start;
+		}
+
+		h1 {
+			max-width: 15ch;
+		}
+
+		.card-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			animation: none !important;
+			transition: none !important;
+		}
+
+		.reveal {
+			opacity: 1;
+			transform: none;
+		}
+	}
+</style>
