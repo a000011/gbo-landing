@@ -1,10 +1,12 @@
+version: '3.8'
+
 services:
   web:
     image: gas-trek:latest
     build:
       context: .
       dockerfile: Dockerfile
-      target: production
-    ports:
-      - "80:80"
-    restart: unless-stopped
+    environment:
+      - NODE_ENV
+      - HOST
+      - PORT

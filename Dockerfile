@@ -1,16 +1,24 @@
-FROM node:22.12.0-alpine AS build
-
+FROM node:lts-alpine AS base
 WORKDIR /app
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json package-lock.json ./
 
+FROM base AS prod-deps
+RUN npm install --omit=dev
+
+FROM base AS build-deps
+RUN npm install
+
+FROM build-deps AS build
 COPY . .
-RUN yarn build
+RUN npm run build
 
-FROM nginx:1.27-alpine AS production
+FROM base AS runtime
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
 
-COPY --from=build /app/dist /usr/share/nginx/html
+ARG HOST="0.0.0.0"
+ARG PORT="4321"
 
-
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE $PORT
+CMD ["node", "./dist/server/entry.mjs"]
