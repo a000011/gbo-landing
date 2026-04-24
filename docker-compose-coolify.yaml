@@ -1,0 +1,8 @@
+services:
+  web:
+    image: gas-trek:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    restart: unless-stopped
