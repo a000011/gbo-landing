@@ -129,16 +129,18 @@ const localBusinessSchema = {
 								<figcaption>Финальная проверка и выдача автомобиля</figcaption>
 							</figure>
 						</div>
-					</div>
-					<div class="carousel-controls" aria-label="Управление каруселью">
-						<button class="carousel-btn" type="button" data-prev aria-label="Предыдущее фото">←</button>
-						<div class="carousel-dots" data-dots>
+						<button class="carousel-btn carousel-btn-prev" type="button" data-prev aria-label="Предыдущее фото">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+						</button>
+						<button class="carousel-btn carousel-btn-next" type="button" data-next aria-label="Следующее фото">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+						</button>
+						<div class="carousel-dots" data-dots aria-label="Переключение фото">
 							<button type="button" aria-label="Фото 1" data-dot="0" class="is-active"></button>
 							<button type="button" aria-label="Фото 2" data-dot="1"></button>
 							<button type="button" aria-label="Фото 3" data-dot="2"></button>
 							<button type="button" aria-label="Фото 4" data-dot="3"></button>
 						</div>
-						<button class="carousel-btn" type="button" data-next aria-label="Следующее фото">→</button>
 					</div>
 				</div>
 			</div>
@@ -560,6 +562,7 @@ const localBusinessSchema = {
 	}
 
 	.carousel-frame {
+		position: relative;
 		overflow: hidden;
 		border-radius: 14px;
 		border: 1px solid var(--line);
@@ -593,52 +596,79 @@ const localBusinessSchema = {
 		color: var(--muted);
 	}
 
-	.carousel-controls {
+	.carousel-btn {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: 10;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		gap: 0.8rem;
-		margin-top: 0.9rem;
+		justify-content: center;
+		width: 14%;
+		border: none;
+		border-radius: 0;
+		background: transparent;
+		color: transparent;
+		cursor: pointer;
+		transition: background 200ms ease, color 200ms ease;
+		padding: 0;
 	}
 
-	.carousel-btn {
-		width: 2.5rem;
-		height: 2.5rem;
-		border: 1px solid var(--line);
-		border-radius: 999px;
-		background: #fff;
-		color: var(--ink);
-		font-size: 1.1rem;
-		line-height: 1;
-		cursor: pointer;
+	.carousel-btn-prev {
+		left: 0;
+		border-radius: 14px 0 0 0;
+	}
+
+	.carousel-btn-next {
+		right: 0;
+		border-radius: 0 14px 0 0;
+	}
+
+	.carousel-btn svg {
+		opacity: 0;
+		transition: opacity 200ms ease;
+		filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
 	}
 
 	.carousel-btn:hover,
 	.carousel-btn:focus-visible {
-		border-color: var(--accent);
-		color: var(--accent);
+		background: rgba(0, 0, 0, 0.18);
+		color: #fff;
+	}
+
+	.carousel-btn:hover svg,
+	.carousel-btn:focus-visible svg {
+		opacity: 1;
 	}
 
 	.carousel-dots {
+		position: absolute;
+		bottom: 0.75rem;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 10;
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		gap: 0.4rem;
-		flex: 1;
+		gap: 0.45rem;
+		padding: 0.35rem 0.65rem;
+		background: rgba(0, 0, 0, 0.3);
+		border-radius: 999px;
+		backdrop-filter: blur(4px);
 	}
 
 	.carousel-dots button {
-		width: 0.65rem;
-		height: 0.65rem;
+		width: 0.55rem;
+		height: 0.55rem;
 		border-radius: 999px;
 		border: none;
-		background: #b8c4cf;
+		background: rgba(255, 255, 255, 0.5);
 		padding: 0;
 		cursor: pointer;
+		transition: background 180ms ease;
 	}
 
 	.carousel-dots button.is-active {
-		background: var(--accent);
+		background: #fff;
 	}
 
 	.faq-list {
