@@ -1,0 +1,21 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#24384A"/>
+      <stop offset="1" stop-color="#4A7EA1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg4)"/>
+  <rect y="640" width="1600" height="260" fill="#141F2A"/>
+  <rect x="1060" y="140" width="420" height="470" rx="16" fill="#172532" stroke="#80B4D8" stroke-width="3"/>
+  <rect x="1120" y="210" width="300" height="320" rx="12" fill="#0F1822"/>
+  <circle cx="400" cy="664" r="62" fill="#0F1720" stroke="#97C9E7" stroke-width="10"/>
+  <circle cx="710" cy="664" r="62" fill="#0F1720" stroke="#97C9E7" stroke-width="10"/>
+  <path d="M260 638H870L810 520H390L305 560L260 638Z" fill="#729FC0"/>
+  <rect x="420" y="542" width="300" height="84" rx="10" fill="#B8DAEF" opacity="0.62"/>
+  <path d="M910 540L1010 500L1110 570" stroke="#93C6E5" stroke-width="8"/>
+  <circle cx="910" cy="540" r="16" fill="#93C6E5"/>
+  <circle cx="1010" cy="500" r="16" fill="#93C6E5"/>
+  <circle cx="1110" cy="570" r="16" fill="#93C6E5"/>
+  <text x="120" y="778" fill="#DEEFF9" font-size="54" font-family="Verdana">Gas Trek • Финальная проверка и выдача</text>
+</svg>

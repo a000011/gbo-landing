@@ -1,9 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const localBusinessSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'AutoRepair',
+	name: 'Gas Trek',
+	image: '/favicon.svg',
+	description: 'Установка, настройка и обслуживание ГБО с гарантией в Тольятти.',
+	telephone: '+7-8482-21-12-33',
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Тольятти',
+		streetAddress: 'ул. Ларина 145',
+		addressCountry: 'RU'
+	},
+	openingHours: 'Mo-Sa 09:00-19:00',
+	areaServed: 'Тольятти',
+	priceRange: '31000 RUB+'
+};
 ---
 
 <Layout title="Gas Trek - Установка и обслуживание ГБО" description="Установка, настройка и сервис ГБО с гарантией. Работаем с пропаном и метаном, подбираем комплект под ваш автомобиль.">
+	<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 	<main>
+		<nav class="navbar">
+			<div class="container navbar-content">
+				<div class="logo-brand">
+					<img class="logo" src="/favicon.svg" alt="Gas Trek logo" width="40" height="40" loading="eager" decoding="async" />
+					<span class="brand-name">gas trek</span>
+				</div>
+				<a href="tel:+784822112233" class="navbar-cta">Позвонить</a>
+			</div>
+		</nav>
 		<header class="hero" id="top">
 			<div class="hero-glow" aria-hidden="true"></div>
 			<div class="container hero-grid">
@@ -75,6 +103,47 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
+		<section class="section section-soft" id="gallery">
+			<div class="container">
+				<div class="section-head reveal">
+					<p class="eyebrow">ФОТОГАЛЕРЕЯ</p>
+					<h2>Как выглядит работа в Gas Trek</h2>
+				</div>
+				<div class="carousel reveal" data-carousel>
+					<div class="carousel-frame">
+						<div class="carousel-track" data-track>
+							<figure class="carousel-slide">
+								<img src="/gallery/service-1.svg" alt="Автомобиль на подъемнике перед установкой ГБО" loading="lazy" />
+								<figcaption>Диагностика и подготовка к монтажу</figcaption>
+							</figure>
+							<figure class="carousel-slide">
+								<img src="/gallery/service-2.svg" alt="Установка компонентов газобаллонного оборудования" loading="lazy" />
+								<figcaption>Аккуратная укладка магистралей и монтаж узлов</figcaption>
+							</figure>
+							<figure class="carousel-slide">
+								<img src="/gallery/service-3.svg" alt="Калибровка ГБО на диагностическом стенде" loading="lazy" />
+								<figcaption>Точная настройка и калибровка системы</figcaption>
+							</figure>
+							<figure class="carousel-slide">
+								<img src="/gallery/service-4.svg" alt="Выдача автомобиля клиенту после установки ГБО" loading="lazy" />
+								<figcaption>Финальная проверка и выдача автомобиля</figcaption>
+							</figure>
+						</div>
+					</div>
+					<div class="carousel-controls" aria-label="Управление каруселью">
+						<button class="carousel-btn" type="button" data-prev aria-label="Предыдущее фото">←</button>
+						<div class="carousel-dots" data-dots>
+							<button type="button" aria-label="Фото 1" data-dot="0" class="is-active"></button>
+							<button type="button" aria-label="Фото 2" data-dot="1"></button>
+							<button type="button" aria-label="Фото 3" data-dot="2"></button>
+							<button type="button" aria-label="Фото 4" data-dot="3"></button>
+						</div>
+						<button class="carousel-btn" type="button" data-next aria-label="Следующее фото">→</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<section class="section section-soft" id="faq">
 			<div class="container">
 				<div class="section-head reveal">
@@ -94,17 +163,40 @@ import Layout from '../layouts/Layout.astro';
 						<summary>Можно ли ездить зимой на ГБО?</summary>
 						<p>Да, система работает штатно при корректной настройке и исправной бензиновой части.</p>
 					</details>
+					<details class="faq-item reveal">
+						<summary>Как узаконить ГБО и нужны ли документы?</summary>
+						<p>ГБО требует оформления в техпаспорте и акта переоборудования. Мы оформляем все необходимые документы и согласуем с ГАИ. Процесс занимает 1-2 недели.</p>
+					</details>
+					<details class="faq-item reveal">
+						<summary>На какие модели машин можно установить ГБО?</summary>
+						<p>На большинство авто с бензиновым двигателем: Лада, Хёндай, Пежо, Форд, Мазда, Киа. Требуется предварительная диагностика. Бесплатная консультация по телефону.</p>
+					</details>
+					<details class="faq-item reveal">
+						<summary>Сколько денег экономится в месяц?</summary>
+						<p>При среднем пробеге 2000 км/мес экономия 4-6 тыс. ₽. Окупается за 5-10 месяцев в зависимости от пробега и цен на топливо.</p>
+					</details>
+					<details class="faq-item reveal">
+						<summary>Что будет, если долго не обслуживать ГБО?</summary>
+						<p>Забитые фильтры, заржавелые форсунки, контрольные лампы. Может привести к отказу переключения на газ. Регулярное ТО стоит дешевле качественного ремонта.</p>
+					</details>
+					<details class="faq-item reveal">
+						<summary>Сколько длится установка ГБО?</summary>
+						<p>Обычно 1-2 дня в зависимости от конструкции автомобиля и сложности монтажа. Записываем без очередей, можете остаться в нашем офисе или уехать.</p>
+					</details>
 				</div>
 			</div>
 		</section>
 
 		<section class="section" id="contacts">
 			<div class="container contact-wrap reveal">
-				<div>
+				<div class="contact-card">
 					<p class="eyebrow">КОНТАКТЫ</p>
 					<h2>Запись по телефону</h2>
 					<p>г. Тольятти, ул. Ларина 145<br/>Пн-Сб: 09:00-19:00</p>
 					<p><a href="tel:+784822112233">+7 (8482) 21-12-33</a></p>
+				</div>
+				<div class="map-embed" aria-label="Карта проезда Gas Trek">
+					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6d4cb011193cb9eb67ecb58266047f6108c373a3b02b9d75c3128096b7b51991&amp;width=500&amp;height=400&amp;lang=en_FR&amp;scroll=true"></script>
 				</div>
 			</div>
 		</section>
@@ -133,24 +225,104 @@ import Layout from '../layouts/Layout.astro';
 				observer.observe(item);
 			});
 		}
+
+		const carousels = document.querySelectorAll('[data-carousel]');
+		carousels.forEach((carousel) => {
+			const frame = carousel.querySelector('.carousel-frame');
+			const track = carousel.querySelector('[data-track]');
+			const prev = carousel.querySelector('[data-prev]');
+			const next = carousel.querySelector('[data-next]');
+			const dots = Array.from(carousel.querySelectorAll('[data-dot]'));
+			if (!frame || !track || !prev || !next || dots.length === 0) return;
+
+			const slides = Array.from(track.children);
+			let index = 0;
+			let touchStartX = 0;
+			let touchStartY = 0;
+			const swipeThreshold = 45;
+
+			const render = () => {
+				track.style.transform = `translateX(-${index * 100}%)`;
+				dots.forEach((dot, i) => {
+					dot.classList.toggle('is-active', i === index);
+				});
+			};
+
+			const prevSlide = () => {
+				index = index === 0 ? slides.length - 1 : index - 1;
+				render();
+			};
+
+			const nextSlide = () => {
+				index = index === slides.length - 1 ? 0 : index + 1;
+				render();
+			};
+
+			prev.addEventListener('click', () => {
+				prevSlide();
+			});
+
+			next.addEventListener('click', () => {
+				nextSlide();
+			});
+
+			dots.forEach((dot, i) => {
+				dot.addEventListener('click', () => {
+					index = i;
+					render();
+				});
+			});
+
+			frame.addEventListener('touchstart', (event) => {
+				const touch = event.changedTouches[0];
+				touchStartX = touch.clientX;
+				touchStartY = touch.clientY;
+			}, { passive: true });
+
+			frame.addEventListener('touchend', (event) => {
+				const touch = event.changedTouches[0];
+				const deltaX = touch.clientX - touchStartX;
+				const deltaY = touch.clientY - touchStartY;
+				if (Math.abs(deltaX) < swipeThreshold || Math.abs(deltaX) < Math.abs(deltaY)) return;
+				if (deltaX < 0) {
+					nextSlide();
+				} else {
+					prevSlide();
+				}
+			}, { passive: true });
+		});
+
+		const stretchMap = (embed) => {
+			const elements = embed.querySelectorAll('div, iframe, ymaps');
+			elements.forEach((element) => {
+				element.style.setProperty('width', '100%', 'important');
+				element.style.setProperty('max-width', '100%', 'important');
+			});
+		};
+
+		document.querySelectorAll('.map-embed').forEach((embed) => {
+			const observer = new MutationObserver(() => stretchMap(embed));
+			observer.observe(embed, { childList: true, subtree: true });
+			stretchMap(embed);
+		});
 	</script>
 </Layout>
 
 <style>
 	:global(:root) {
-		--bg: #f4f4ef;
-		--bg-soft: #e9e8e1;
-		--paper: #fbfbf8;
-		--ink: #1b2329;
-		--muted: #4e5a63;
-		--accent: #d4582f;
-		--line: #d8d6ca;
+		--bg: #edf2f6;
+		--bg-soft: #e2e9f0;
+		--paper: #f8fbfd;
+		--ink: #17212b;
+		--muted: #516171;
+		--accent: #2f6f96;
+		--line: #cad4de;
 		--shadow: 0 10px 40px rgba(27, 35, 41, 0.08);
 	}
 
 	main {
-		background: radial-gradient(circle at 10% -10%, #fff7eb 0%, transparent 50%),
-			radial-gradient(circle at 90% -20%, #e1ecef 0%, transparent 42%),
+		background: radial-gradient(circle at 10% -10%, #e5eff8 0%, transparent 50%),
+			radial-gradient(circle at 90% -20%, #d9e6f1 0%, transparent 42%),
 			var(--bg);
 		color: var(--ink);
 	}
@@ -173,7 +345,7 @@ import Layout from '../layouts/Layout.astro';
 		border-radius: 50%;
 		top: -280px;
 		right: -160px;
-		background: radial-gradient(circle, rgba(212, 88, 47, 0.22) 0%, transparent 70%);
+		background: radial-gradient(circle, rgba(47, 111, 150, 0.22) 0%, transparent 70%);
 		pointer-events: none;
 	}
 
@@ -252,7 +424,7 @@ import Layout from '../layouts/Layout.astro';
 		background: var(--accent);
 		color: #fff;
 		border: none;
-		box-shadow: 0 12px 22px rgba(212, 88, 47, 0.28);
+		box-shadow: 0 12px 22px rgba(47, 111, 150, 0.28);
 	}
 
 	.button-ghost {
@@ -379,6 +551,96 @@ import Layout from '../layouts/Layout.astro';
 		flex-shrink: 0;
 	}
 
+	.carousel {
+		background: var(--paper);
+		border: 1px solid var(--line);
+		border-radius: 20px;
+		padding: 1rem;
+		box-shadow: var(--shadow);
+	}
+
+	.carousel-frame {
+		overflow: hidden;
+		border-radius: 14px;
+		border: 1px solid var(--line);
+		touch-action: pan-y;
+	}
+
+	.carousel-track {
+		display: flex;
+		transition: transform 380ms ease;
+	}
+
+	.carousel-slide {
+		width: 100%;
+		flex: 0 0 100%;
+		margin: 0;
+		background: #000;
+	}
+
+	.carousel-slide img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+	}
+
+	.carousel-slide figcaption {
+		background: var(--paper);
+		padding: 0.7rem 0.9rem;
+		font-size: 0.95rem;
+		color: var(--muted);
+	}
+
+	.carousel-controls {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.8rem;
+		margin-top: 0.9rem;
+	}
+
+	.carousel-btn {
+		width: 2.5rem;
+		height: 2.5rem;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		background: #fff;
+		color: var(--ink);
+		font-size: 1.1rem;
+		line-height: 1;
+		cursor: pointer;
+	}
+
+	.carousel-btn:hover,
+	.carousel-btn:focus-visible {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	.carousel-dots {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		flex: 1;
+	}
+
+	.carousel-dots button {
+		width: 0.65rem;
+		height: 0.65rem;
+		border-radius: 999px;
+		border: none;
+		background: #b8c4cf;
+		padding: 0;
+		cursor: pointer;
+	}
+
+	.carousel-dots button.is-active {
+		background: var(--accent);
+	}
+
 	.faq-list {
 		display: grid;
 		gap: 0.75rem;
@@ -406,6 +668,32 @@ import Layout from '../layouts/Layout.astro';
 		gap: 1rem;
 	}
 
+	.contact-card {
+		background: var(--paper);
+		border: 1px solid var(--line);
+		border-radius: 20px;
+		padding: 1.25rem;
+		box-shadow: var(--shadow);
+	}
+
+	.map-embed {
+		min-height: 400px;
+		border-radius: 20px;
+		overflow: hidden;
+		border: 1px solid var(--line);
+		box-shadow: var(--shadow);
+		background: var(--paper);
+	}
+
+	.map-embed > ymaps,
+	.map-embed > div,
+	.map-embed div,
+	.map-embed ymaps,
+	.map-embed iframe {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
 	.contact-wrap a {
 		color: var(--ink);
 	}
@@ -413,7 +701,7 @@ import Layout from '../layouts/Layout.astro';
 	button:focus-visible,
 	a:focus-visible,
 	summary:focus-visible {
-		outline: 3px solid rgba(212, 88, 47, 0.35);
+		outline: 3px solid rgba(47, 111, 150, 0.35);
 		outline-offset: 2px;
 	}
 
@@ -429,6 +717,61 @@ import Layout from '../layouts/Layout.astro';
 		transform: translateY(0);
 	}
 
+	.navbar {
+		background: var(--paper);
+		border-bottom: 1px solid var(--line);
+		padding: 0.75rem 0;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		box-shadow: 0 2px 12px rgba(27, 35, 41, 0.04);
+	}
+
+	.navbar-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo-brand {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		text-decoration: none;
+		color: var(--ink);
+		font-weight: 800;
+		font-size: 1.15rem;
+		letter-spacing: -0.02em;
+	}
+
+	.logo {
+		width: 40px;
+		height: 40px;
+		display: block;
+		object-fit: contain;
+		flex-shrink: 0;
+	}
+
+	.brand-name {
+		font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+		text-transform: lowercase;
+	}
+
+	.navbar-cta {
+		padding: 0.5rem 1.2rem;
+		background: var(--accent);
+		color: #fff;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.9rem;
+		transition: background 200ms ease;
+	}
+
+	.navbar-cta:hover {
+		background: #245778;
+	}
+
 	@media (min-width: 760px) {
 		.hero-grid {
 			grid-template-columns: 1.25fr 0.75fr;
@@ -441,6 +784,11 @@ import Layout from '../layouts/Layout.astro';
 
 		.card-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.contact-wrap {
+			grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+			align-items: stretch;
 		}
 	}
 
