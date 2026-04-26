@@ -1,24 +1,20 @@
 FROM node:lts-alpine AS base
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json yarn.lock ./
 
 FROM base AS prod-deps
-RUN npm install --omit=dev
+RUN yarn install --production --frozen-lockfile
 
 FROM base AS build-deps
-RUN npm install
+RUN yarn install --frozen-lockfile
 
 FROM build-deps AS build
 COPY . .
-RUN npm run build
+RUN yarn build
 
 FROM base AS runtime
 COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 
-ARG HOST="0.0.0.0"
-ARG PORT="4321"
-
-EXPOSE $PORT
 CMD ["node", "./dist/server/entry.mjs"]

@@ -1,4 +1,4 @@
 services:
   web:
     ports:
-      - $PORT
+      - "80:80"
