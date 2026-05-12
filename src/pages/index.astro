@@ -187,6 +187,18 @@ const localBusinessSchema = {
 					<h2>Запись по телефону</h2>
 					<p>г. Тольятти, ул. Ларина 145<br/>Пн-Сб: 09:00-19:00</p>
 					<p><a href="tel:+784822112233">+7 (8482) 21-12-33</a></p>
+					<div class="contact-socials" aria-label="Социальные сети">
+						<a
+							class="social-link social-link-vk"
+							href="https://vk.com/gbotlt"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Группа Gas Trek во ВКонтакте"
+							title="Мы во ВКонтакте"
+						>
+							<img src="/VK_Logo.svg" alt="ВКонтакте" width="28" height="28" />
+						</a>
+					</div>
 				</div>
 				<div class="map-embed" aria-label="Карта проезда Gas Trek">
 					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6d4cb011193cb9eb67ecb58266047f6108c373a3b02b9d75c3128096b7b51991&amp;width=500&amp;height=400&amp;lang=en_FR&amp;scroll=true"></script>
@@ -695,6 +707,32 @@ const localBusinessSchema = {
 		border-radius: 20px;
 		padding: 1.25rem;
 		box-shadow: var(--shadow);
+	}
+
+	.contact-socials {
+		display: flex;
+		align-items: center;
+		margin-top: 0.75rem;
+	}
+
+	.social-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.95rem;
+		height: 2.95rem;
+		line-height: 0;
+		text-decoration: none;
+		transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+	}
+
+	.social-link-vk {
+		color: #0f5fa9;
+	}
+
+	.social-link-vk:hover {
+		transform: translateY(-1px);
+		color: #084f93;
 	}
 
 	.map-embed {
