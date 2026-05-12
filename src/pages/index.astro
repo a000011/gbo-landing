@@ -7,14 +7,14 @@ const localBusinessSchema = {
 	name: 'Gas Trek',
 	image: '/favicon.svg',
 	description: 'Установка, настройка и обслуживание ГБО с гарантией в Тольятти.',
-	telephone: '+7-8482-21-12-33',
+		telephone: '+7-917-810-23-41',
 	address: {
 		'@type': 'PostalAddress',
 		addressLocality: 'Тольятти',
 		streetAddress: 'ул. Ларина 145',
 		addressCountry: 'RU'
 	},
-	openingHours: 'Mo-Sa 09:00-19:00',
+	openingHours: 'Mo-Fr 09:00-19:00, Sa 09:00-13:00',
 	areaServed: 'Тольятти',
 	priceRange: '31000 RUB+'
 };
@@ -31,7 +31,7 @@ const localBusinessSchema = {
 					<h1>Устанавливаем ГБО аккуратно, настраиваем точно, экономим до 45% на топливе</h1>
 					<p class="lead">Подберем комплект 4-го поколения под ваш авто, оформим документы и дадим гарантию на работы и оборудование.</p>
 					<div class="hero-cta">
-						<a class="button button-primary" href="tel:+784822112233">Позвонить сейчас</a>
+						<a class="button button-primary" href="tel:+79178102341">Позвонить сейчас</a>
 					</div>
 					<ul class="hero-facts" aria-label="Ключевые преимущества">
 						<li>Быстро и качественно</li>
@@ -47,7 +47,7 @@ const localBusinessSchema = {
 						<li>Ремонт редукторов и форсунок</li>
 						<li>Плановое обслуживание</li>
 					</ul>
-					<p class="panel-note">Работаем с популярными брендами: BRC, Digitronic, Lovato.</p>
+					<p class="panel-note">Работаем с оборудованием лучших производителей.</p>
 				</aside>
 			</div>
 		</header>
@@ -91,6 +91,26 @@ const localBusinessSchema = {
 					<li class="reveal"><span>3</span>Калибровка, тест на дороге и финальная проверка</li>
 					<li class="reveal"><span>4</span>Передача авто, рекомендации по эксплуатации и график ТО</li>
 				</ol>
+			</div>
+		</section>
+
+		<section class="section section-soft" id="brands">
+			<div class="container">
+				<div class="section-head reveal">
+					<p class="eyebrow">ПАРТНЁРЫ</p>
+					<h2>Бренды, с которыми мы работаем</h2>
+				</div>
+				<div class="brands-grid reveal">
+					<div class="brand-item">
+						<img src="/logos/brc_logo.png" alt="BRC" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/digitronic_logo.png" alt="Digitronic" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/lovato_logo.png" alt="Lovato" loading="lazy" />
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -185,9 +205,9 @@ const localBusinessSchema = {
 				<div class="contact-card">
 					<p class="eyebrow">КОНТАКТЫ</p>
 					<h2>Запись по телефону</h2>
-					<p>г. Тольятти, ул. Ларина 145<br/>Пн-Сб: 09:00-19:00</p>
-					<p><a href="tel:+784822112233">+7 (8482) 21-12-33</a></p>
-					<div class="contact-socials" aria-label="Социальные сети">
+					<p>г. Тольятти, ул. Ларина 145<br/>Пн-Пт: 09:00-19:00<br/>Сб: 09:00-13:00</p>
+					<p><a href="tel:+79178102341">+7 (917) 810-23-41</a></p>
+				<p><a href="tel:+79278988878">+7 (927) 899-88-78</a></p>					<div class="contact-socials" aria-label="Социальные сети">
 						<a
 							class="social-link social-link-vk"
 							href="https://vk.com/gbotlt"
@@ -209,27 +229,7 @@ const localBusinessSchema = {
 
 	<script is:inline>
 		const items = document.querySelectorAll('.reveal');
-		const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		if (reduced) {
-			items.forEach((item) => item.classList.add('is-visible'));
-		} else {
-			const observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add('is-visible');
-							observer.unobserve(entry.target);
-						}
-					});
-				},
-				{ threshold: 0.15 }
-			);
-
-			items.forEach((item, index) => {
-				item.style.setProperty('--delay', `${Math.min(index * 45, 240)}ms`);
-				observer.observe(item);
-			});
-		}
+		items.forEach((item) => item.classList.add('is-visible'));
 
 		const carousels = document.querySelectorAll('[data-carousel]');
 		carousels.forEach((carousel) => {
@@ -755,6 +755,36 @@ const localBusinessSchema = {
 
 	.contact-wrap a {
 		color: var(--ink);
+	}
+
+	.brands-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: 1.5rem;
+		align-items: center;
+		justify-items: center;
+	}
+
+	.brand-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 80px;
+	}
+
+	.brand-item img {
+		max-width: 100%;
+		height: auto;
+		max-height: 80px;
+		object-fit: contain;
+		filter: grayscale(100%);
+		opacity: 0.8;
+		transition: filter 200ms ease, opacity 200ms ease;
+	}
+
+	.brand-item:hover img {
+		filter: grayscale(0%);
+		opacity: 1;
 	}
 
 	button:focus-visible,
