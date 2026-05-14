@@ -110,6 +110,33 @@ const localBusinessSchema = {
 					<div class="brand-item">
 						<img src="/logos/lovato_logo.png" alt="Lovato" loading="lazy" />
 					</div>
+					<div class="brand-item">
+						<img src="/logos/alpha_logo.jpg" alt="Alpha" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/atiker_logo.png" alt="Atiker" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/logo-agis.jpg" alt="Agis" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/logo-tamona.jpg" alt="Tamona" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/logo-zenit-box9.png" alt="Zenit Box9" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/poletron_logo.png" alt="Poletron" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/stag_logo.png" alt="Stag" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/zavoli_logo.png" alt="Zavoli" loading="lazy" />
+					</div>
+					<div class="brand-item">
+						<img src="/logos/euro_logo.webp" alt="Euro" loading="lazy" />
+					</div>
 				</div>
 			</div>
 		</section>
@@ -770,6 +797,11 @@ const localBusinessSchema = {
 		align-items: center;
 		justify-content: center;
 		min-height: 80px;
+		background-color: white; /* Белый фон для логотипов */
+		border: 1px solid #ddd; /* Легкая рамка */
+		border-radius: 8px; /* Скругленные углы */
+		padding: 10px; /* Отступы внутри рамки */
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
 	}
 
 	.brand-item img {
@@ -777,14 +809,8 @@ const localBusinessSchema = {
 		height: auto;
 		max-height: 80px;
 		object-fit: contain;
-		filter: grayscale(100%);
-		opacity: 0.8;
-		transition: filter 200ms ease, opacity 200ms ease;
-	}
-
-	.brand-item:hover img {
-		filter: grayscale(0%);
-		opacity: 1;
+		width: 150px; /* Устанавливаем фиксированную ширину */
+		height: 100px; /* Устанавливаем фиксированную высоту */
 	}
 
 	button:focus-visible,
