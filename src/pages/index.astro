@@ -14,7 +14,7 @@ const localBusinessSchema = {
 		streetAddress: 'ул. Ларина 145',
 		addressCountry: 'RU'
 	},
-	openingHours: 'Mo-Fr 09:00-19:00, Sa 09:00-13:00',
+	openingHoursDetails: 'Mo-Fr 09:00-19:00, Sa 09:00-13:00',
 	areaServed: 'Тольятти',
 	priceRange: '31000 RUB+'
 };
@@ -414,6 +414,10 @@ const localBusinessSchema = {
 		position: relative;
 		padding: clamp(3.5rem, 6vw, 6rem) 0 3rem;
 		overflow: clip;
+		background: linear-gradient(135deg, rgba(237, 242, 246, 0.88) 0%, rgba(237, 242, 246, 0.85) 100%), url('/hero-banner.png');
+		background-size: cover;
+		background-position: center right;
+		background-repeat: no-repeat;
 	}
 
 	.hero-glow {
