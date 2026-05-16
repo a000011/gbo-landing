@@ -1,1 +1,2 @@
-change open graph tags
+- change open graph tags
+- change "og:image"
