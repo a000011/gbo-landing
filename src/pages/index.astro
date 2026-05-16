@@ -254,6 +254,15 @@ const localBusinessSchema = {
 		</section>
 	</main>
 
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<p class="footer-legal">ИП: 123456789012 | ИНН: 770000000001 | ОГРН: 315774600188375</p>
+				<p class="footer-note">© 2024 Gas Trek. Все права защищены.</p>
+			</div>
+		</div>
+	</footer>
+
 	<script is:inline>
 		const items = document.querySelectorAll('.reveal');
 		items.forEach((item) => item.classList.add('is-visible'));
@@ -862,5 +871,29 @@ const localBusinessSchema = {
 			opacity: 1;
 			transform: none;
 		}
+	}
+
+	.footer {
+		background: var(--bg-soft);
+		border-top: 1px solid var(--line);
+		margin-top: 3rem;
+		padding: 1.5rem 0;
+	}
+
+	.footer-content {
+		text-align: center;
+	}
+
+	.footer-legal {
+		font-size: 0.85rem;
+		color: var(--muted);
+		margin: 0 0 0.5rem;
+		word-break: break-word;
+	}
+
+	.footer-note {
+		font-size: 0.8rem;
+		color: var(--muted);
+		margin: 0;
 	}
 </style>
