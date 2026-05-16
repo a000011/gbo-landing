@@ -79,6 +79,44 @@ const localBusinessSchema = {
 			</div>
 		</section>
 
+		<section class="section" id="benefits-detailed">
+			<div class="container">
+				<div class="section-head reveal">
+					<p class="eyebrow">ПРЕИМУЩЕСТВА ГБО</p>
+					<h2>Три главные причины установить ГБО</h2>
+				</div>
+				<div class="benefits-columns reveal">
+					<div class="benefit-column">
+						<h3>Экономия топлива</h3>
+						<p>Газ стоит на 40–50% дешевле бензина. При среднем пробеге 2000 км в месяц экономия составляет 4–6 тыс. ₽. Система окупается за 5–10 месяцев, дальше только прибыль.</p>
+						<ul>
+							<li>Меньше расходов на топливо</li>
+							<li>Больший запас хода</li>
+							<li>Быстрая окупаемость</li>
+						</ul>
+					</div>
+					<div class="benefit-column">
+						<h3>Надёжность и безопасность</h3>
+						<p>ГБО 4 поколения — проверенная технология с автоматическим переключением между топливом. Только сертифицированные компоненты, правильная укладка магистралей и гарантия на оборудование и работы.</p>
+						<ul>
+							<li>Система 4 поколения</li>
+							<li>Сертифицированные компоненты</li>
+							<li>Гарантия и сопровождение</li>
+						</ul>
+					</div>
+					<div class="benefit-column">
+						<h3>Удобство и свобода</h3>
+						<p>Двойное топливо даёт свободу выбора на дороге. Автоматическое переключение работает прозрачно для водителя. При отсутствии газа — езжу на бензине. Экологичнее и выгоднее.</p>
+						<ul>
+							<li>Автоматическое переключение</li>
+							<li>Свобода выбора топлива</li>
+							<li>Меньше загрязнений</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<section class="section" id="steps">
 			<div class="container">
 				<div class="section-head reveal">
@@ -258,7 +296,6 @@ const localBusinessSchema = {
 		<div class="container">
 			<div class="footer-content">
 				<p class="footer-legal">ИП: 123456789012 | ИНН: 770000000001 | ОГРН: 315774600188375</p>
-				<p class="footer-note">© 2024 Gas Trek. Все права защищены.</p>
 			</div>
 		</div>
 	</footer>
@@ -841,7 +878,61 @@ const localBusinessSchema = {
 		transform: translateY(0);
 	}
 
+	.benefits-columns {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	.benefit-column {
+		background: var(--paper);
+		border: 1px solid var(--line);
+		border-radius: 20px;
+		padding: 1.5rem;
+		box-shadow: var(--shadow);
+	}
+
+	.benefit-column h3 {
+		font-size: 1.35rem;
+		margin: 0 0 0.8rem;
+		color: var(--accent);
+	}
+
+	.benefit-column p {
+		color: var(--muted);
+		line-height: 1.6;
+		margin: 0 0 1.2rem;
+	}
+
+	.benefit-column ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.benefit-column li {
+		color: var(--ink);
+		font-size: 0.95rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+
+	.benefit-column li::before {
+		content: "✓";
+		color: var(--accent);
+		font-weight: bold;
+		flex-shrink: 0;
+	}
+
 	@media (min-width: 760px) {
+		.benefits-columns {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
 		.hero-grid {
 			grid-template-columns: 1.25fr 0.75fr;
 			align-items: start;
